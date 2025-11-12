@@ -9,22 +9,21 @@ import Fade from "embla-carousel-fade";
 
 type Slide = {
   image: string;
-  [key: string]: any;
+  title?: string;
+  description?: string;
 };
 
-const slides = [
+const slides: Slide[] = [
   { image: "/images/lanscape-bp.png" },
   { image: "/images/jollof.jpeg" },
-
   { image: "/images/interior-ls.png" },
   { image: "/images/Spicy-Peppered-GOATMEAT.jpeg" },
-  ,
   { image: "/images/exterior-1.png" },
   { image: "/images/img-7-1.jpg" },
   { image: "/images/img-7-1.jpg" },
 ];
 
-const Hero = () => {
+const Hero: React.FC = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 5000, stopOnInteraction: false }),
     Fade(),
@@ -40,7 +39,7 @@ const Hero = () => {
           {slides.map((slide, index) => (
             <div className="flex-[0_0_100%] h-full relative" key={index}>
               <Image
-                src={slide?.image || "/fallback-image.jpg"}
+                src={slide.image}
                 alt={`Slide ${index + 1}`}
                 fill
                 style={{ objectFit: "cover" }}
@@ -66,13 +65,13 @@ const Hero = () => {
         <div className="mt-10 flex flex-col sm:flex-row gap-4">
           <a
             href="/menu"
-            className="font-kranky bg-brand-accent  text-background tracking-widest px-6 py-3 text-md text-center hover:bg-opacity-80 transition-all"
+            className="font-kranky bg-brand-accent text-background tracking-widest px-6 py-3 text-md text-center hover:bg-opacity-80 transition-all"
           >
             View Menu
           </a>
           <a
             href="#reservations"
-            className="font-fred border border-white text-white tracking-widest  px-4 py-3 text-md text-center hover:bg-white hover:text-background transition-all"
+            className="font-fred border border-white text-white tracking-widest px-4 py-3 text-md text-center hover:bg-white hover:text-background transition-all"
           >
             Book a Table
           </a>
