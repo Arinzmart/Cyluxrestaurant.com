@@ -7,6 +7,11 @@ import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import "./embla.css";
 import Fade from "embla-carousel-fade";
 
+type Slide = {
+  image: string;
+  [key: string]: any;
+};
+
 const slides = [
   { image: "/images/lanscape-bp.png" },
   { image: "/images/jollof.jpeg" },
@@ -35,7 +40,7 @@ const Hero = () => {
           {slides.map((slide, index) => (
             <div className="flex-[0_0_100%] h-full relative" key={index}>
               <Image
-                src={slide.image}
+                src={slide?.image || "/fallback-image.jpg"}
                 alt={`Slide ${index + 1}`}
                 fill
                 style={{ objectFit: "cover" }}
