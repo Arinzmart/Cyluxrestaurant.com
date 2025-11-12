@@ -50,7 +50,7 @@ const About = () => {
           <div className="relative h-[500px] md:h-[600px]">
             <div className="relative w-full h-full p-4 border-4 border-brand-accent/20 rounded-sm">
               <Image
-                src="/images/about-us.png"
+                src="/images/IMG_6759.png"
                 alt="Chef preparing a dish"
                 fill
                 style={{ objectFit: "cover" }}
